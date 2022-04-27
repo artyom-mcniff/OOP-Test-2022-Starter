@@ -1,5 +1,6 @@
 package ie.tudublin;
 
+import processing.core.PApplet;
 import processing.data.TableRow;
 
 public class Nematode {
@@ -13,6 +14,8 @@ public class Nematode {
     String gender;
     //eyes
     int eyes;
+
+    PApplet pa;
 
 
 
@@ -69,6 +72,7 @@ public class Nematode {
         this.eyes = eyes;
     }
 
+   
     
 
 }
