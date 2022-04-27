@@ -86,7 +86,16 @@ public class NematodeVisualiser extends PApplet
 
 
 		noFill();
+		// length
 		circle(width/2, height/2+k, r);
+
+		//limbs
+		if (todes.get(index).getLimbs() == 1)
+		{
+			line(width/2+r, height/2+k, width/2+r+r, height/2+k);
+			line(width/2-r, height/2+k, width/2-r-r, height/2+k);
+		}
+		
 	}
 
 
@@ -100,6 +109,36 @@ public class NematodeVisualiser extends PApplet
 		circle(width/2, height/2+radius, radius);
 		circle(width/2, height/2-radius, radius);
 	}
+	*/
+
+	/*
+	checklist
+	if (todes.get(index).getGender().equals("f"))
+		circle in bottom segment
+
+	if (todes.get(index).getGender().equals("m"))
+		line and circle on last segmment
+
+	if (todes.get(index).getGender().equals("h"))
+		draw both
+
+
+	if (todes.get(index).getGender().equals("n"))
+		draw neither
+
+
+	if (todes.get(index).getLimbs() == 1)
+		draw lines
+
+	if (todes.get(index).getLimbs() == 0
+		dont draw lines
+	
+	if (todes.get(index).getEyes() == 1)
+		draw two lines and a circle
+
+	if (todes.get(index).getEyes() == 0)
+		dont draw two lines and a circle
+
 	*/
 
 
