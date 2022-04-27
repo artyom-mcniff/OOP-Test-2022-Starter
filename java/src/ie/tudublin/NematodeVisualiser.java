@@ -10,12 +10,22 @@ public class NematodeVisualiser extends PApplet
 {
 
 	ArrayList<Nematode> todes = new ArrayList<Nematode>();
+	
+
 	int index = 0;
 
 	public void keyPressed()
 	{		
 		if (keyCode == LEFT)
 		{
+			if (index - 1 <= 0)
+			{
+				index = todes.size()-1;
+			}
+			else
+			{
+				index--;
+			}
 		}
 		if (keyCode == RIGHT)
 		{
@@ -78,8 +88,9 @@ public class NematodeVisualiser extends PApplet
 	float next = 0;
 	float r = 25;
 
-	public void drawNematodes(float k)
+	public void drawNematodes(float k, int j)
 	{
+		strokeWeight(1);
 		textSize(24);
 		textAlign(CENTER, CENTER);
 		text(todes.get(index).getName(), width/2, height/4);
@@ -95,9 +106,54 @@ public class NematodeVisualiser extends PApplet
 			line(width/2+r, height/2+k, width/2+r+r, height/2+k);
 			line(width/2-r, height/2+k, width/2-r-r, height/2+k);
 		}
-		
-	}
 
+		//gender
+		if (todes.get(index).getGender().equals("f"))
+		{
+			if (j % 2 != 0 && j + 1 >= todes.get(index).getLength())
+			{
+				strokeWeight(2);
+				circle(width/2, height/2, r-10);
+			}
+		}
+
+		if (todes.get(index).getGender().equals("m"))
+		{
+			if (j % 2 != 0 && j + 1 >= todes.get(index).getLength())
+			{
+				strokeWeight(2);
+				line(width/2, height/2+k+r, width/2, height/2+k+r+r);
+				circle(width/2, height/2+k+r+r, r-20);
+			}
+		}
+
+		if (todes.get(index).getGender().equals("h"))
+		{
+			if (j % 2 != 0 && j + 1 >= todes.get(index).getLength())
+			{
+				strokeWeight(2);
+				circle(width/2, height/2, r-10);
+
+				line(width/2, height/2+k+r, width/2, height/2+k+r+r);
+				circle(width/2, height/2+k+r+r, r-20);
+			}
+
+		}
+
+		//eyes
+		if (todes.get(index).getEyes() == 1)
+		{
+			if (j % 2 == 0 && j + 1 >= todes.get(index).getLength())
+			{
+				line(width/2+r-10, height/2-k-20, width/2+r, height/2-k-30);
+				line(width/2-r+10, height/2-k-20, width/2-r, height/2-k-30);
+				circle(width/2+r, height/2-k-30, r-20);
+				circle(width/2-r, height/2-k-30, r-20);
+
+			}
+		}
+	}
+	
 
 
 	/*
@@ -113,13 +169,13 @@ public class NematodeVisualiser extends PApplet
 
 	/*
 	checklist
-	if (todes.get(index).getGender().equals("f"))
+	
 		circle in bottom segment
 
-	if (todes.get(index).getGender().equals("m"))
+	
 		line and circle on last segmment
 
-	if (todes.get(index).getGender().equals("h"))
+	
 		draw both
 
 
@@ -133,7 +189,7 @@ public class NematodeVisualiser extends PApplet
 	if (todes.get(index).getLimbs() == 0
 		dont draw lines
 	
-	if (todes.get(index).getEyes() == 1)
+	
 		draw two lines and a circle
 
 	if (todes.get(index).getEyes() == 0)
@@ -149,7 +205,7 @@ public class NematodeVisualiser extends PApplet
 		next = 0;
 		for (int i = 0; i <= todes.get(index).getLength(); i++)
 		{
-			drawNematodes(next);
+			drawNematodes(next, i);
 			if (i % 2 == 0)
 			{
 				next = next - r * i;
