@@ -45,8 +45,25 @@ public class NematodeVisualiser extends PApplet
 
 	}
 
+	public void drawArrows()
+	{
+		float arrowhead = 25;
+		stroke(255);
+		//left arrow
+		line(width/4, height/2, (width/4) + (width/6), height/2);
+		line(width/4, height/2, width/4 + arrowhead, height/2 - arrowhead);
+		line(width/4, height/2, width/4 + arrowhead, height/2 + arrowhead); 
+		//right arrow
+		line(width - width/4, height/2, width - ( (width/4) + width/6), height/2);
+		line(width - width/4, height/2, width - width/4 - arrowhead, height/2 - arrowhead );
+		line(width - width/4, height/2, width - width/4 - arrowhead, height/2 + arrowhead );
+
+	}
+
 
 	public void draw()
-	{	
+	{
+		background(0);
+		drawArrows();
 	}
 }
