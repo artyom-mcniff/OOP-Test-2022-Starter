@@ -8,8 +8,12 @@ import processing.data.TableRow;
 
 public class NematodeVisualiser extends PApplet
 {
+	
+
 
 	ArrayList<Nematode> todes = new ArrayList<Nematode>();
+	
+	
 	
 
 	int index = 0;
@@ -88,9 +92,11 @@ public class NematodeVisualiser extends PApplet
 	float next = 0;
 	float r = 25;
 
+
 	public void drawNematodes(float k, int j)
 	{
 		strokeWeight(1);
+		stroke(255); 
 		textSize(24);
 		textAlign(CENTER, CENTER);
 		text(todes.get(index).getName(), width/2, height/4);
